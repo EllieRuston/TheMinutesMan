@@ -1,9 +1,9 @@
 from xmlrpc.client import boolean
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, flash
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login')
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template('login.html', boolean =True)
 
@@ -11,7 +11,25 @@ def login():
 def logout():
     return "<p> Logout </p>"
 
-@auth.route('/register')
+@auth.route('/register', methods=['GET', 'POST'])
 def register():
+    if request.method == 'POST':
+        email=request.form.get('email')
+        username=request.form.get('username')
+        password1=request.form.get('password1')
+        password2=request.form.get('password2')
+        
+        if len(email) < 4:
+            flash('Email must be greater than 4 char', category="error")
+        elif len(username) < 2:
+            flash('Username needs to be first and last name', category='error')
+        elif password1 != password2:
+            flash('passwords must match', category='error')
+        elif password1 < 7:
+            flash('passwords must be longer than 7 char', category='error')
+        else:
+            flash('account created', category='success')
+            #add user to database
+            
     return  render_template('register.html')
 
