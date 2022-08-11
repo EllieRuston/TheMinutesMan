@@ -7,7 +7,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(15), unique=True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
-    m_deatils = db.relationship('M_deatils')
+    m_deatils = db.relationship('M_details')
 
 class M_details (db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -22,14 +22,14 @@ class M_details (db.Model):
     
 class M_topic(db.Model):
     id= db.Column(db.Integer, primary_key=True)
-    min_ID = db.Column(db.Integer, db.ForeignKey('m_details.id'))
+    min_ID = db.Column(db.Integer, db.ForeignKey('M_details.id'))
     topic = db.Column(db.String(50), nullable=True)
     raised_by = db.Column(db.String(), nullable=False)
     m_action = db.relationship('M_action')
     
 class M_action(db.Model):
     id= db.Column(db.Integer, primary_key = True)
-    topic_ID = db.Column(db.Integer, db.ForeignKey('m_topic.id'))
+    topic_ID = db.Column(db.Integer, db.ForeignKey('M_topic.id'))
     action = db.Column(db.String(), nullable=False)
     person_R = db.Column(db.String(), nullable=False)
     extra_data = db.Column(db.String(), nullable=True)

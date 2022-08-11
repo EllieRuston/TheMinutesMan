@@ -1,5 +1,9 @@
-from xmlrpc.client import boolean
-from flask import Blueprint, render_template, request, flash
+from . import db 
+from flask import Blueprint, render_template, request, flash, redirect, url_for
+
+from website import DB_NAME
+from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
 
@@ -25,10 +29,14 @@ def register():
             flash('Username needs to be first and last name', category='error')
         elif password1 != password2:
             flash('passwords must match', category='error')
-        elif password1 < 7:
+        elif len(password1) < 7:
             flash('passwords must be longer than 7 char', category='error')
         else:
+            new_user = User(email=email, username=username, password=generate_password_hash(password2, method='sha256'))
+            db.session.add(new_user)
+            db.session.commit()
             flash('account created', category='success')
+            return redirect(url_for('views.home'))
             #add user to database
             
     return  render_template('register.html')
