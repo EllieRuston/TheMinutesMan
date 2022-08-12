@@ -1,19 +1,20 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DateField, TimeField
-from wtforms.validators import input_required 
+from wtforms.validators import InputRequired
+
 
 class MinutesForm(FlaskForm):
-    title= StringField('title', validators=[input_required()])
+    title= StringField('title', validators=[InputRequired()])
     date = DateField('date')
-    start_T = TimeField('start_T', validators=[input_required()])
-    end_T = TimeField('end_T', validators=[input_required()])
-    a_present = StringField('a_present', validators=[input_required()])
+    start_T = TimeField('start_T', validators=[InputRequired()])
+    end_T = TimeField('end_T', validators=[InputRequired()])
+    a_present = StringField('a_present', validators=[InputRequired()])
     a_absent = StringField('a_absent')
-    topic = StringField('topic', validators=[input_required()])
-    raised_by = StringField('raised_b', validators=[input_required()])
-    action = StringField('action', validators=[input_required()])
-    person_R = StringField('person_R', validators=[input_required()])
+    topic = StringField('topic', validators=[InputRequired()])
+    raised_by = StringField('raised_b', validators=[InputRequired()])
+    action = StringField('action', validators=[InputRequired()])
+    person_R = StringField('person_R', validators=[InputRequired()])
     extra_data = StringField('extra_data')
     deadline = DateField('deadline')
-    save = SubmitField('save')
+    save = SubmitField('Save')
     
