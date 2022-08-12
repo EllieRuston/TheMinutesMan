@@ -34,9 +34,25 @@ rgba(165,126,213,1) 100%, rgba(93,8,154,1) 100%);
 body{
 margin: 10;
 padding: 10;
-font-family:'Amatic SC', cursive;
+font-family:'Century Gothic', cursive;
 font-size: 30px;
 color: white;
 background: rgb(1,70,120);
 background: linear-gradient(90deg, rgba(1,70,120,0.7307692307692308) 0%, rgba(1,0,29,0.8974358974358975) 27%);
+}
+
+.navbar-nav{
+font-family:'Amatic SC', cursive;}
+
+.list-group-item{
+    background-color: transparent;
+    color:azure;
+    font-size: smaller;
+}
+
+.close{
+    border-radius: 30px;
+    border-color: azure;
+    background-color: transparent;
+    color: azure;
 }
