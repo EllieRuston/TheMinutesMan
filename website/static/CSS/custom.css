@@ -51,6 +51,7 @@ font-weight: bold;
     color:azure;
     font-size:medium;
     margin: 15px;
+    list-style-type:none;
 }
 
 .custom{
@@ -74,4 +75,10 @@ font-size: 3rem;
 .list-group{
     list-style-type:none;
     font-size: medium;
+}
+
+.card{
+    text-align: right;
+    
+   
 }
