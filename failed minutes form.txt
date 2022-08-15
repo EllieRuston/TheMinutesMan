@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Minutes
+{% endblock %}
+
+{% block content %}
+
+<div class = "content-selection">
+    <form method='POST' action="/r" role=form>
+    {{ form.crsf_token }}
+    
+        <fieldset class = "form-group">
+            {{ form.hidden_tag() }}
+            <legend class = "border-bottom mb-4"> Meeting Details </legend>
+       <div class = "form-group">
+        {{ form.title.label (class="form-control-label")}}
+        {{ form.title(class="form-control form-control-lg")}}
+        </div>
+        <div class = "form-group">
+            {{ form.date.label (class="form-control-label")}}
+            {{ form.date(class="form-control form-control-lg")}}
+        </div>
+        <div class = "form-group">
+        {{ form.start_T.label (class="form-control-label")}}
+        {{ form.start_T(class="form-control form-control-lg")}}
+        </div>
+        <div class = "form-group">
+            {{ form.end_T.label (class="form-control-label")}}
+            {{ form.end_T(class="form-control form-control-lg") }}
+        </div>
+        <div class = "form-group">
+            {{ form.a_present.label (class="form-control-label")}}
+            {{ form.a_present(class="form-control form-control-lg") }}
+        </div>
+        <div class = "form-group">
+            {{ form.a_absent.label (class="form-control-label")}}
+            {{ form.a_absent(class="form-control form-control-lg") }}
+        </div>
+            <!--<legend class = "border-bottom mb-4"> </legend>
+            {% for t in Topic.topic %}
+            <div>
+            {{ form.topic.label }}
+            {{ form.topic }}
+            {{ form.raised_by.label }}
+            {{ form.raised_by }}
+            </div>
+          {% endfor %}
+       
+       <div>
+            {% for a in form.actions %}
+                {{ a.form.action.label }}  
+                {{ a.form.action }}
+                {{ a.form.person_R.label }}  
+                {{ a.form.person_R }}
+                {{ a.form.deadline.label }}  
+                {{ a.form.deadline }}
+                {{ a.form.extra_data.label }}  
+                {{ a.form.extra_data }}
+            {% endfor %} 
+        </div>-->
+        
+        <!--    <div class = "form-group">
+            {{ form.topic.label (class="form-control-label")}}
+            {{ form.topic(class="form-control form-control-lg") }}
+        </div>
+        <div class = "form-group">
+            {{ form.raised_by.label (class="form-control-label")}}
+            {{ form.raised_by(class="form-control form-control-lg") }}
+        </div>
+        <div class = "form-group">
+            {{ form.action.label (class="form-control-label")}}
+            {{ form.action(class="form-control form-control-lg") }}
+        </div>
+        <div class = "form-group">
+            {{ form.person_R.label (class="form-control-label")}}
+            {{ form.person_R(class="form-control form-control-lg") }}
+        </div>
+        <div class = "form-group">
+            {{ form.extra_data.label (class="form-control-label")}}
+            {{ form.extra_data(class="form-control form-control-lg") }}
+        </div>
+        <div class = "form-group">
+            {{ form.deadline.label (class="form-control-label")}}
+            {{ form.deadline(class="form-control form-control-lg") }}
+        </div>-->
+        <div>
+        {{form.save}}
+        </div>
+
+        </fiedset>
+    </form>
+</div>
+{% endblock %}

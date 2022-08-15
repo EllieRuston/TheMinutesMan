@@ -5,23 +5,35 @@
 {% endblock %}
 
 {% block content %}
-<h1 align="right"> Welcome {{ user.username }} </h1>
-
+<h1 align="left"> Welcome {{ user.username }} </h1>
+<br />
+ 
 <ul class = "list-group list-group-flush" id="notes">
    {% for note in user.notes %} 
-    <li class="list-group-item">
-        {{ note.data }}
-        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-            <span aria-hidden="true">&times;</span>
-        </button>
+   <li class="list-group-item">
+        <li>Meeting: {{ note.title }}</li>
+         <hr>      
+        <li>Date: {{ note.date}}</li>
+        <li>Attendees present: {{ note.a_present }}</li>
+        <li>absent: {{ note.a_absent}}</li>
+        <hr>
+        <li>Topic: {{ note.topic }}</li>
+        <li>Raised by: {{ note.raised_by}}</li>
+        <li>Action Items: {{ note.action }}</li>
+        <li>Person Responsable:{{ note.person_R}}</li>
+        <li>Deadline: {{ note.deadline }}</li>
+        <li>Addtional Information:{{ note.extra_data}}</li>
+        </div>
+        <button type="button" class="btn btn-outline-info align-right" onClick="deleteNote({{ note.id }})">X</button>
     </li>
+</div>
     {% endfor %}
 </ul>
 <form method ="POST">
     <textarea name="note" id="note" class="form-control"></textarea>
     <br />
     <div align="center">
-        <button type="submit" class="btn, btn-primary"> Create Agenda </button>
+        <button type="submit" class="btn btn-outline-info"> Create Agenda </button>
     </div>
 </form>
 {% endblock %}

@@ -17,4 +17,4 @@ class MinutesForm(FlaskForm):
     extra_data = StringField('extra_data')
     deadline = DateField('deadline')
     save = SubmitField('Save')
-    
+

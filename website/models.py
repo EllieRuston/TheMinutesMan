@@ -12,11 +12,22 @@ class User(db.Model, UserMixin):
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.String(10000))
-    date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    title = db.Column(db.String(25), nullable=False)
+    date = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    start_T = db.Column(db.String(5), nullable=False)
+    end_T = db.Column(db.String(5), nullable=False)
+    a_present = db.Column(db.String(), nullable=False)
+    a_absent = db.Column(db.String(), nullable=False)
+    topic = db.Column(db.String(50), nullable=True)
+    raised_by = db.Column(db.String(), nullable=False)
+    action = db.Column(db.String(), nullable=False)
+    person_R = db.Column(db.String(), nullable=False)
+    deadline = db.Column(db.DateTime(), nullable=True)
+    extra_data = db.Column(db.String(), nullable=True) 
 
-
+   
+        
 class M_details (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_ID = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -40,5 +51,5 @@ class M_action(db.Model):
     topic_ID = db.Column(db.Integer, db.ForeignKey('M_topic.id'))
     action = db.Column(db.String(), nullable=False)
     person_R = db.Column(db.String(), nullable=False)
-    extra_data = db.Column(db.String(), nullable=True)
-    deadline = db.Column(db.DateTime(), nullable=False) 
+    deadline = db.Column(db.DateTime(), nullable=False)
+    extra_data = db.Column(db.String(), nullable=True) 

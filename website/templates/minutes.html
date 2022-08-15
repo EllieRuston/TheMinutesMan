@@ -1,70 +1,66 @@
 {% extends 'base.html' %}
-{% block title %}
-Minutes
-{% endblock %}
+{% block title %} Mintues {% endblock %}
 
 {% block content %}
-
-<div class = "content-selection">
-    <form method='POST' action="{{ url_for("views.minutes")}}">
-    {{ form.hidden_tag() }}
+<div class="content-selection">
+    <form action="/minutes" method="POST">
+        {{form.hidden_tag() }}
         <fieldset class = "form-group">
-            <legend class = "border-bottom mb-4"> Meeting Details </legend>
-        <div class = "form-group">
-        {{ form.title.label (class="form-control-label")}}
-        {{ form.title(class="form-control form-control-lg")}}
-        </div>
-        <div class = "form-group">
-            {{ form.date.label (class="form-control-label")}}
-            {{ form.date(class="form-control form-control-lg")}}
-        </div>
-        <div class = "form-group">
-        {{ form.start_T.label (class="form-control-label")}}
-        {{ form.start_T(class="form-control form-control-lg")}}
-        </div>
-        <div class = "form-group">
-            {{ form.end_T.label (class="form-control-label")}}
-            {{ form.end_T(class="form-control form-control-lg") }}
-        </div>
-        <div class = "form-group">
-            {{ form.a_present.label (class="form-control-label")}}
-            {{ form.a_present(class="form-control form-control-lg") }}
-        </div>
-        <div class = "form-group">
-            {{ form.a_absent.label (class="form-control-label")}}
-            {{ form.a_absent(class="form-control form-control-lg") }}
-        </div>
-            <legend class = "border-bottom mb-4"> </legend>
-        <div class = "form-group">
-            {{ form.topic.label (class="form-control-label")}}
-            {{ form.topic(class="form-control form-control-lg") }}
-        </div>
-        <div class = "form-group">
-            {{ form.raised_by.label (class="form-control-label")}}
-            {{ form.raised_by(class="form-control form-control-lg") }}
-        </div>
-        <div class = "form-group">
-            {{ form.action.label (class="form-control-label")}}
-            {{ form.action(class="form-control form-control-lg") }}
-        </div>
-        <div class = "form-group">
-            {{ form.person_R.label (class="form-control-label")}}
-            {{ form.person_R(class="form-control form-control-lg") }}
-        </div>
-        <div class = "form-group">
-            {{ form.extra_data.label (class="form-control-label")}}
-            {{ form.extra_data(class="form-control form-control-lg") }}
-        </div>
-        <div class = "form-group">
-            {{ form.deadline.label (class="form-control-label")}}
-            {{ form.deadline(class="form-control form-control-lg") }}
-        </div>
-        <div>
-        {{form.save}}
-        </div>
+            <div class = "form-group">
+                <legend class = "border-bottom mb-4"> Meeting Details </legend>
+                <div class = "form-group">
+                 {{ form.title.label (class="form-control-label")}}
+                 {{ form.title(class="form-control form-control-lg")}}
+                 </div>
 
-        </fiedset>
-        {{ form.crsf_token }}
+                 <div class = "form-group">
+                 {{ form.start_T.label (class="form-control-label")}}
+                 {{ form.start_T(class="form-control form-control-lg")}}
+                 </div>
+                 <div class = "form-group">
+                     {{ form.end_T.label (class="form-control-label")}}
+                     {{ form.end_T(class="form-control form-control-lg") }}
+                 </div>
+                 <legend class = "border-bottom mb-4"> Attendees </legend>
+                 <div class = "form-group">
+                     {{ form.a_present.label (class="form-control-label")}}
+                     {{ form.a_present(class="form-control form-control-lg") }}
+                 </div>
+                 <div class = "form-group">
+                     {{ form.a_absent.label (class="form-control-label")}}
+                     {{ form.a_absent(class="form-control form-control-lg") }}
+                <legend class = "border-bottom mb-4"> Discussion </legend>
+                 <div class = "form-group">
+                    {{ form.topic.label (class="form-control-label")}}
+                    {{ form.topic(class="form-control form-control-lg") }}
+                </div>
+                <div class = "form-group">
+                    {{ form.raised_by.label (class="form-control-label")}}
+                    {{ form.raised_by(class="form-control form-control-lg") }}
+                </div>
+                <div class = "form-group">
+                    {{ form.action.label (class="form-control-label")}}
+                    {{ form.action(class="form-control form-control-lg") }}
+                </div>
+                <div class = "form-group">
+                    {{ form.person_R.label (class="form-control-label")}}
+                    {{ form.person_R(class="form-control form-control-lg") }}
+                </div>
+                <div class = "form-group">
+                    {{ form.deadline.label (class="form-control-label")}}
+                    {{ form.deadline(class="form-control form-control-lg") }}
+                </div>
+                <div class = "form-group">
+                    {{ form.extra_data.label (class="form-control-label")}}
+                    {{ form.extra_data(class="form-control form-control-lg") }}
+                </div>
+                
+                <div>
+                {{form.save}}
+                </div>
+    
+        </fieldset>
     </form>
 </div>
+
 {% endblock %}
