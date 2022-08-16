@@ -78,7 +78,10 @@ font-size: 3rem;
 }
 
 .card{
-    text-align: right;
-    
-   
+    text-align: right;  
+}
+
+h3{
+    font-family:'Amatic SC', cursive;
+    font-size: 2rem;
 }
